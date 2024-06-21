@@ -61,3 +61,42 @@ require('lspconfig').lua_ls.setup {
 require("lspconfig").dartls.setup {}
 
 require('lspconfig').phpactor.setup {}
+
+-- Setup liquid lsp
+require('lspconfig').theme_check.setup {}
+
+-- Setup graphql lsp
+local servers = { 'graphql' };
+if has_mason_lspconfig then
+    mason_lspconfig.setup({
+        automatic_installation = true,
+        ensure_installed = servers,
+    })
+end
+
+if has_lsp_config then
+    for _, server in ipairs(servers) do
+        require("lsp.servers." .. server).setup(on_attach, capabilities)
+    end
+end
+
+local M = {}
+M.setup = function(on_attach, capabilities)
+    local lspconfig = require("lspconfig")
+
+    lspconfig.graphql.setup({
+        on_attach = on_attach,
+        root_dir = lspconfig.util.root_pattern(".graphqlconfig", ".graphqlrc", "package.json"),
+        flags = {
+            debounce_text_changes = 150,
+        },
+        capabilities = capabilities,
+    })
+end
+
+return M
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "liquid",
+--     command = "setlocal shiftwidth=2 tabstop=2"
+-- })

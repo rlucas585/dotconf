@@ -75,6 +75,10 @@ return require('packer').startup(function(use)
         end
     }
 
+    use('neovim/nvim-lspconfig')
+    use('jose-elias-alvarez/null-ls.nvim')
+    use('MunifTanjim/prettier.nvim')
+
     use('folke/neoconf.nvim')
 
     use('sindrets/diffview.nvim')
@@ -86,4 +90,6 @@ return require('packer').startup(function(use)
             require("color-picker")
         end,
     })
+
+    use('tpope/vim-liquid')
 end)

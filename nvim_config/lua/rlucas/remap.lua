@@ -1,4 +1,4 @@
-vim.g.mapleader = " " -- Set leader key
+vim.g.mapleader = " "                         -- Set leader key
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex) -- Remap in normal mode " pv" to run `Ex` (open directory view)
 
 -- We don't need a mouse in vim
@@ -17,7 +17,7 @@ vim.keymap.set("n", ";", ":")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "J", "mzJ`z") -- Join lines without moving the cursor
+vim.keymap.set("n", "J", "mzJ`z")       -- Join lines without moving the cursor
 vim.keymap.set("n", "<C-d>", "<C-d>zz") -- Move down half a page, and keep cursor centered
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
@@ -26,9 +26,9 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", "\"_dP") -- Paste without copying the text you just pasted, using <leader>-p
 
-vim.keymap.set("n", "<leader>y", "\"+y") -- Copy to system clipboard using <leader>-y
-vim.keymap.set("v", "<leader>y", "\"+y") -- Copy to system clipboard using <leader>-y
-vim.keymap.set("n", "<leader>Y", "\"+Y") -- Copy to system clipboard using <leader>-Y
+vim.keymap.set("n", "<leader>y", "\"+y")  -- Copy to system clipboard using <leader>-y
+vim.keymap.set("v", "<leader>y", "\"+y")  -- Copy to system clipboard using <leader>-y
+vim.keymap.set("n", "<leader>Y", "\"+Y")  -- Copy to system clipboard using <leader>-Y
 
 -- Delete to void register, using <leader>-d
 vim.keymap.set("n", "<leader>d", "\"_d")
@@ -75,3 +75,7 @@ vim.keymap.set("n", "<leader>6", ":tabn 6<CR>")
 vim.keymap.set("n", "<leader>7", ":tabn 7<CR>")
 vim.keymap.set("n", "<leader>8", ":tabn 8<CR>")
 vim.keymap.set("n", "<leader>9", ":tabn 9<CR>")
+
+-- easy `diffthis` and `diffoff`
+vim.keymap.set("n", "<leader>dt", ":diffthis<CR>")
+vim.keymap.set("n", "<leader>do", ":diffoff<CR>")
